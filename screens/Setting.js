@@ -16,12 +16,12 @@ const Setting = ({navigation}) => {
     };
     
     return(
-        <View style={{ padding:5,flex:1,paddingTop:50,backgroundColor:'white'}}>
+        <View style={{ padding:10,flex:1,paddingTop:50,backgroundColor:'#FAE7FD'}}>
             <Text
             style={{
                 alignSelf:'center',
                 padding : 10,
-                margin : 10,
+                margin : 20,
                 fontSize:30
             }}>
                 SETTING
@@ -72,7 +72,7 @@ const Setting = ({navigation}) => {
                 </Text>
             </TouchableOpacity>
             <Button
-                buttonColor="#FAE7FD"
+                buttonColor="#FCA5A5"
                 textColor="black"
                 mode="contained"
                 onPress={handleLogout}

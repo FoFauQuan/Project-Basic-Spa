@@ -28,7 +28,7 @@ const Appointments = () => {
 
         return () => unsubscribe();
     }, []);
-    const handleDelete = (service) => {
+    const handleCancel = (service) => {
         if(service.state == 'wait'){
         Alert.alert(
             "Warning",
@@ -92,7 +92,7 @@ const Appointments = () => {
                     flex:1, 
                     borderRadius:20,
                     backgroundColor: displayText(item.state).color,}} 
-                    onPress={() => handleDelete(item)}>
+                    onPress={() => handleCancel(item)}>
                 <Text style={{alignSelf:'center',fontSize: 18}}>
                     {displayText(item.state).text}
                 </Text>

@@ -48,7 +48,7 @@ const Customers = () => {
             padding: 15, 
             borderRadius: 15, 
             marginVertical: 5, 
-            backgroundColor: '#e0e0e0'
+            backgroundColor:'#FAE7FD'
             }}>
             <Text style={{ fontSize: 18, fontWeight: "bold" }}>Email: {item.email} | Password: {item.password}</Text>
             <Text style={{ fontSize: 18, fontWeight: "bold" }}>Tên: {item.fullName} </Text>
@@ -61,7 +61,7 @@ const Customers = () => {
             padding: 15, 
             borderRadius: 15, 
             marginVertical: 5, 
-            backgroundColor: '#e0e0e0'
+            backgroundColor:'#FAE7FD'
             }}>
             <Text style={{ fontSize: 18, fontWeight: "bold" }}>Email: {item.email} | Password: {item.password}</Text>
             <Text style={{ fontSize: 18, fontWeight: "bold" }}>Tên: {item.fullName} </Text>
@@ -71,7 +71,7 @@ const Customers = () => {
     );
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1,backgroundColor:'white' }}>
             <Text style={{ padding: 15, fontSize: 25, fontWeight: "bold" }}>Admin</Text>
             <FlatList
                 data={admin}

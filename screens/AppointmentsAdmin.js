@@ -9,6 +9,7 @@ const AppointmentsAdmin = () => {
     const [appointments, setAppointments] = useState([]);
     const [datetime, setDatetime] = useState(new Date())
     const [open, setOpen] = useState(false)
+ 
     useEffect(() => {
         const unsubscribe = APPOINTMENTs
             .onSnapshot(querySnapshot => {
@@ -92,6 +93,36 @@ const AppointmentsAdmin = () => {
         )
         }
     }
+    const handleDelete = (service) => {
+        if(service.state == 'accept'||service.state == 'cancel'){
+        Alert.alert(
+            "Warning",
+            "Are you sure you want to cancel this service? This operation cannot be returned",
+            [
+                {
+                    text: "Back",
+                    style: "cancel"
+                },
+                {
+                    text: "Delete",
+                    onPress: () => {
+                        firestore()
+                            .collection('Appointments')
+                            .doc(service.id)
+                            .delete()
+                            .then(() => {
+                                console.log("Dịch vụ đã được hủy thành công!");
+                            })
+                            .catch(error => {
+                                console.error("Lỗi khi hủy dịch vụ:", error);
+                            });
+                    },
+                    style: "default"
+                }
+            ]
+        )
+        }
+    }
     const displayText = (item) => {
         if (item === 'wait') {
             return { text: 'Accept', color: '#8EFCAC' };
@@ -132,6 +163,7 @@ const AppointmentsAdmin = () => {
             {item.state == 'wait' && (
             <TouchableOpacity 
                     style={{borderWidth:1,
+                    marginVertical:5,
                     flex:1, 
                     borderRadius:20,
                     backgroundColor:'#FCA5A5'}} 
@@ -139,6 +171,33 @@ const AppointmentsAdmin = () => {
                 <Text style={{alignSelf:'center',fontSize: 18}}>
                     Cancel
                 </Text>
+            </TouchableOpacity>
+            )}
+
+            {item.state == 'accept' && (
+            <TouchableOpacity 
+                style={{borderWidth:1,
+                marginVertical:5,
+                flex:1, 
+                borderRadius:20,
+                backgroundColor:'#FF2A2A'}} 
+                onPress={() => handleDelete(item)}>
+            <Text style={{alignSelf:'center',fontSize: 18}}>
+                Delete
+            </Text>
+            </TouchableOpacity>
+            )}
+            {item.state == 'cancel' && (
+            <TouchableOpacity 
+                style={{borderWidth:1,
+                marginVertical:5,
+                flex:1, 
+                borderRadius:20,
+                backgroundColor:'#FF2A2A'}} 
+                onPress={() => handleDelete(item)}>
+            <Text style={{alignSelf:'center',fontSize: 18}}>
+                Delete
+            </Text>
             </TouchableOpacity>
             )}
         </View>
