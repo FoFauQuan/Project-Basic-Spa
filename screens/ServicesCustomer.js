@@ -40,7 +40,7 @@ const ServicesCustomer = ({ navigation }) => {
                 }}>
 
             <Text style={{fontSize: 20, fontWeight: "bold",alignSelf:'center'}}>{item.title}</Text>
-            <Text style={{fontSize: 20, fontWeight: "bold",alignSelf:'center'}}>{item.price} ₫</Text>
+            <Text style={{fontSize: 20, fontWeight: "bold",alignSelf:'center'}}>{parseInt(item.price).toLocaleString('vi-VN')} ₫</Text>
         </View>
         </TouchableOpacity>
 

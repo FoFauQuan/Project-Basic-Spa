@@ -62,20 +62,14 @@ const Setting = ({navigation}) => {
                     Keyboard Shortcut
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{
-                borderBottomWidth : 0.5,
-                padding : 10,
-                margin : 10,
-            }}>
-                <Text >
-                    Change Laguage
-                </Text>
-            </TouchableOpacity>
             <Button
                 buttonColor="#FCA5A5"
                 textColor="black"
                 mode="contained"
                 onPress={handleLogout}
+                style={{
+                    margin : 10,
+                }}
             >
                 Logout
             </Button>

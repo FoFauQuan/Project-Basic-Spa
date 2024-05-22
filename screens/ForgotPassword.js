@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { Image, View, TouchableOpacity } from 'react-native';
 import { TextInput, Button, Text, HelperText } from 'react-native-paper';
 import firestore from "@react-native-firebase/firestore";
 
@@ -48,12 +48,21 @@ const ForgotPassword = ({ navigation }) => {
         Forgot Password
       </Text>
       <TextInput
+        mode='outlined'
+        cursorColor='pink'
+        theme={{
+          colors: {
+            primary: '#a81e6a', // Màu viền khi được chọn
+            underlineColor: 'transparent', // Màu gạch chân khi không được chọn
+          },
+        }}
         label={"Email"}
+        placeholder='Nhập Email'
         value={email}
         onChangeText={setEmail}
       />
-      <HelperText type='error' visible={hasErrorEmail()}>
-        Địa chỉ email không hợp lệ
+      <HelperText type='error' visible={email.length > 0 && hasErrorEmail()}>
+        Địa chỉ Email không hợp lệ
       </HelperText>
       {password ? (
         <View style={{flexDirection: "row"}}>
@@ -64,10 +73,12 @@ const ForgotPassword = ({ navigation }) => {
       <Button mode='contained' textColor='black' buttonColor='pink' onPress={handleGetPassword} disabled={disableGetPassword}>
         Get Password
       </Button>
-      <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-        <Button onPress={() => navigation.navigate("Login")}>
-          Back to Login
-        </Button>
+      <View style={{justifyContent: "center", alignItems: "center",marginVertical:10 }}>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Text style={{color:'#a81e9e',fontSize:15}}>
+            Back to Login
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

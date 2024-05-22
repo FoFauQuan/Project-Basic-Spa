@@ -37,7 +37,7 @@ const Services = ({ navigation }) => {
         <TouchableOpacity onPress={() => toggleDropdown(item.id)} style={{ margin: 10,padding: 15, borderRadius: 15, marginVertical: 5, backgroundColor: '#FAE7FD'}}>
             <View style={{ flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 20 }}>
             <Text style={{fontSize: 18, fontWeight: "bold"}}>{item.title}</Text>
-            <Text style={{fontSize: 18, fontWeight: "bold"}}>{item.price} ₫</Text>
+            <Text style={{fontSize: 18, fontWeight: "bold"}}>{parseInt(item.price).toLocaleString('vi-VN')} ₫</Text>
             </View>
         </TouchableOpacity>
         {expandedId === item.id && (

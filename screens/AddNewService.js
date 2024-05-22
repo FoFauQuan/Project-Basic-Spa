@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { View, Image } from "react-native"
+import { View, Image, Alert } from "react-native"
 import { Text, TextInput, Button } from "react-native-paper"
 import firestore from '@react-native-firebase/firestore'
 import storage from "@react-native-firebase/storage"
@@ -32,6 +32,7 @@ const AddNewService = ({navigation}) => {
                                 id: response.id, 
                                 image: link
                             })
+                            Alert.alert("Thêm dịch vụ thành công.")
                             navigation.navigate("Services")
                         }
                     )
